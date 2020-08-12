@@ -9,8 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录"
+                android:textSize="30dp"
+                />
+        </LinearLayout>
     <RelativeLayout
-        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
@@ -66,24 +78,44 @@
         <LinearLayout
             android:gravity="center"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/login_textView_alarm"
+                android:paddingTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="输出警告文本"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/login_button_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="reset"
+                android:text="重置" />
 
             <Button
                 android:id="@+id/login_button_regist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="regist"
-                android:text="regist" />
+                android:layout_marginLeft="20dp"
+                android:onClick="startRegistActivity"
+                android:text="注册" />
 
             <Button
                 android:id="@+id/login_button_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="20dp"
+                android:baselineAligned="false"
                 android:onClick="login"
-                android:text="login"
+                android:text="登录"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
