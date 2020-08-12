@@ -117,7 +117,7 @@
                     android:id="@+id/regist_button_reset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="reset"
+                    android:onClick="r_reset"
                     android:text="重置" />
 
                 <Button
