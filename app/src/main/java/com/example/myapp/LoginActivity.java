@@ -41,8 +41,9 @@ public class LoginActivity extends AppCompatActivity {
             c.close();
             db.close();
             Intent intent=new Intent(this,BodyActivity.class);
+            intent.putExtra("name",name);//字段数据封装至intent中
+            //intent.putExtra("pwd",pwd);
             startActivity(intent);
-            this.onPause();
             this.finish();
         }else{
             alarm.setText("用户名或密码错误");
@@ -63,4 +64,5 @@ public class LoginActivity extends AppCompatActivity {
         TextView alarm=findViewById(R.id.login_textView_alarm);
         alarm.setText("");//清空警示语
     }
+
 }
