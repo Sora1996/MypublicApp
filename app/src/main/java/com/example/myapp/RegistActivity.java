@@ -29,14 +29,16 @@ public class RegistActivity extends AppCompatActivity {
         String pwd=editText_pwd.getText().toString();
         String pwd2=editText_pwd2.getText().toString();
         TextView alarm=findViewById(R.id.regist_textView_alarm);
-        alarm.setText("");//清空警示语
-
-        DBOpenHelper dbOpenHelper=new DBOpenHelper(this,"user.db",null,1);//调用dbopenhelp创建user表
+        //清空警示语
+        alarm.setText("");
+        //调用dbopenhelp创建user表
+        DBOpenHelper dbOpenHelper=new DBOpenHelper(this,"user.db",null,1);
         SQLiteDatabase db=dbOpenHelper.getWritableDatabase();
-        Cursor c=db.query("user_tb",null,"userID=?",new String[]{name},null,null,null);//搜索用户名密码
+        //搜索用户名密码
+        Cursor c=db.query("user_tb",null,"userID=?",new String[]{name},null,null,null);
         if(c!=null&&c.getCount()>1){//判断用户名是否存在
             alarm.setText("用户名存在");
-            c.close();//关闭
+            c.close();
         }else{
             if(pwd.equals(pwd2)){
                 if(name.equals("")){
@@ -46,6 +48,7 @@ public class RegistActivity extends AppCompatActivity {
                     values.put("userID",name);
                     values.put("pwd",pwd);
                     long rows=db.insert("user_tb",null,values);
+                    //跳转至login页面
                     Intent intent=new Intent(this,LoginActivity.class);
                     startActivity(intent);
                     this.finish();
@@ -54,6 +57,7 @@ public class RegistActivity extends AppCompatActivity {
                 alarm.setText("两次密码不一致");
             }
         }
+        c.close();
         db.close();
     }
 

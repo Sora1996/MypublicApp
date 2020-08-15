@@ -7,10 +7,10 @@
     tools:context=".BodyActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/body_textView_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="主体"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
