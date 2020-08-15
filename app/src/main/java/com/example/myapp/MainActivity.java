@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {//首页
     public void startLoginActivity(View view){//进入loginactivity，并且停止此activity
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
-        this.onStop();
+        this.finish();
     }
 
     public void exitMainActivity(View view){//退出程序
-        finish();
+        this.finish();
     }
 }
