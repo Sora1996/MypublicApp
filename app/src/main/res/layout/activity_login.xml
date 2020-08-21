@@ -84,7 +84,7 @@
                 android:paddingTop="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="输出警告文本"/>
+                android:text=""/>
         </LinearLayout>
 
         <LinearLayout

@@ -20,12 +20,12 @@
             android:id="@+id/body_textView_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="测试信息"
+            android:text="获取用户信息失败"
             />
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="开启连接"
+            android:text=""
             android:gravity="center"
             android:layout_weight="1"
             />
