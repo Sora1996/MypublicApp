@@ -1,10 +1,21 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"
+        windowActivityTransitions="true">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!--必须制定该属性不然动画不起作用-->
+        <item name="android:windowActivityTransitions">true</item>
+<!--        滑动退出-->
+        <item name="android:windowExitTransition">@transition/slide</item>
+<!--      滑动进入-->
+        <item name="android:windowEnterAnimation">@transition/slide</item>
+<!--        滑动-->
+        <item name="android:windowReenterTransition">@transition/slide</item>
     </style>
+
 
 </resources>

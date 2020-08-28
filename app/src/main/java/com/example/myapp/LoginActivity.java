@@ -1,13 +1,18 @@
 package com.example.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +21,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);//切换使用动画
+        Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
+        //退出时使用
+        getWindow().setExitTransition(explode);
+        //第一次进入时使用
+        getWindow().setEnterTransition(explode);
+        //再次进入时使用
+        getWindow().setReenterTransition(explode);
         setContentView(R.layout.activity_login);
     }
 
@@ -42,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent=new Intent(this,BodyActivity.class);
             intent.putExtra("name",name);
-            startActivity(intent);
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
             c.close();
             db.close();
             this.finish();
@@ -52,8 +65,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void startRegistActivity(View view){//跳转注册页面
-        Intent intent=new Intent(this,RegistActivity.class);
-        startActivity(intent);
+        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LoginActivity.this);
+        ActivityCompat.startActivity(LoginActivity.this,
+                new Intent(LoginActivity.this, RegistActivity.class), optionsCompat.toBundle());
         this.onPause();
     }
 
