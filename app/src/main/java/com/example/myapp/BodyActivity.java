@@ -6,11 +6,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.TextView;
 
 public class BodyActivity extends AppCompatActivity {
@@ -28,6 +25,25 @@ public class BodyActivity extends AppCompatActivity {
         this.onBackPressed();
     }
 
+    protected void stop(){
+        this.onDestroy();
+    }
+
+    public void trick(View view){
+        TextView title=findViewById(R.id.b_title);
+        TextView message=findViewById(R.id.b_message);
+        title.setText("you say:");
+        message.setText("bye bye!");
+        //定时器
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                stop();
+            }
+        }, 5000);    //延时5s执行
+    }
+
+    //退出再次确认功能
     public void onBackPressed() {
         new AlertDialog.Builder(this).setTitle("确认退出吗？")
                 .setIcon(android.R.drawable.ic_dialog_info)

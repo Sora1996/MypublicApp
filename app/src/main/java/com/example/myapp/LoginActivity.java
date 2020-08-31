@@ -5,6 +5,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 
 import android.app.ActivityOptions;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,14 +23,15 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);//切换使用动画
-        Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
-        //退出时使用
-        getWindow().setExitTransition(explode);
-        //第一次进入时使用
-        getWindow().setEnterTransition(explode);
-        //再次进入时使用
-        getWindow().setReenterTransition(explode);
+//        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);//切换使用动画
+//       // Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
+//        Transition slide = TransitionInflater.from(this).inflateTransition(R.transition.slide);
+//        //退出时使用
+//        getWindow().setExitTransition(slide);
+//        //第一次进入时使用
+//        getWindow().setEnterTransition(slide);
+//        //再次进入时使用
+//        getWindow().setReenterTransition(slide);
         setContentView(R.layout.activity_login);
     }
 
@@ -79,4 +82,5 @@ public class LoginActivity extends AppCompatActivity {
         TextView alarm=findViewById(R.id.login_textView_alarm);
         alarm.setText("");//清空警示语
     }
+
 }

@@ -47,6 +47,7 @@
                 />
         </LinearLayout>
         <LinearLayout
+            android:gravity="center"
             android:layout_marginTop="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,8 +59,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-        </LinearLayout>
 
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="trick">
+
+                <TextView
+                    android:id="@+id/b_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="vol:"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/b_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginEnd="0dp"
+                    android:text="this is just a message"
+                    android:textColor="@color/colorAccent" />
+            </RelativeLayout>
+        </LinearLayout>
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

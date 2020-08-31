@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {//首页
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);//切换使用动画
         setContentView(R.layout.activity_main);
     }
 
@@ -32,4 +31,5 @@ public class MainActivity extends AppCompatActivity {//首页
     public void exitMainActivity(View view){//退出程序
         this.finish();
     }
+
 }
