@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
@@ -23,15 +24,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);//切换使用动画
-//       // Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
-//        Transition slide = TransitionInflater.from(this).inflateTransition(R.transition.slide);
-//        //退出时使用
-//        getWindow().setExitTransition(slide);
-//        //第一次进入时使用
-//        getWindow().setEnterTransition(slide);
-//        //再次进入时使用
-//        getWindow().setReenterTransition(slide);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        //退出时使用
+        getWindow().setExitTransition(new Fade());
+        //第一次进入时使用
+        getWindow().setEnterTransition(new Fade());
+        //再次进入时使用
+        getWindow().setReenterTransition(new Fade());
         setContentView(R.layout.activity_login);
     }
 
@@ -49,13 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         //搜索用户名密码
         Cursor c=db.query("user_tb",null,"userID=? and pwd=?",new String[]{name,pwd},null,null,null);
         if(c!=null&&c.getCount()>1){
-//            String[] cols=c.getColumnNames();
-//            while (c.moveToNext()){
-//                for (String ColumName:cols){
-//                    Log.i("info",ColumName+":"+c.getString(c.getColumnIndex(ColumName)));
-//                }
-//            }
-
             Intent intent=new Intent(this,BodyActivity.class);
             intent.putExtra("name",name);
             startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());

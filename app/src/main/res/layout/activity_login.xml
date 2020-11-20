@@ -29,12 +29,13 @@
         <EditText
             android:id="@+id/login_editText_password"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="160dp"
             android:layout_centerHorizontal="true"
             android:ems="10"
+            android:background="@color/colorGrey"
             android:inputType="textPassword"
-            android:hint="请输入密码"
+            android:hint="  请输入密码"
             app:layout_constraintStart_toEndOf="@+id/login_textView_password"
             app:layout_constraintTop_toBottomOf="@+id/login_editText_account" />
 
@@ -52,12 +53,13 @@
         <EditText
             android:id="@+id/login_editText_account"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
             android:ems="10"
+            android:background="@color/colorGrey"
             android:inputType="textPersonName"
-            android:hint="请输入账户"
+            android:hint="  请输入账户"
             app:layout_constraintStart_toEndOf="@+id/login_textView_account"
             app:layout_constraintTop_toTopOf="parent" />
 
