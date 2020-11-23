@@ -17,5 +17,12 @@
         <item name="android:windowReenterTransition">@transition/slide</item>
     </style>
 
+    <style name="Fragment" parent="Theme.AppCompat.Light.DarkActionBar"
+        windowActivityTransitions="true">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 
 </resources>

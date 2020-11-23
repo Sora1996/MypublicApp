@@ -1,6 +1,10 @@
 package com.example.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,6 +15,8 @@ import android.transition.Fade;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BodyActivity extends AppCompatActivity {
     @Override
@@ -24,33 +30,29 @@ public class BodyActivity extends AppCompatActivity {
         //再次进入时使用
         getWindow().setReenterTransition(new Fade());
         setContentView(R.layout.activity_body);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         TextView account=findViewById(R.id.body_textView_account);
         account.setText(name);
+
     }
 
     public void  exit(View view){
         this.onBackPressed();
     }
 
-    protected void stop(){
-        this.onDestroy();
-    }
-
-    public void trick(View view){
-        TextView title=findViewById(R.id.b_title);
-        TextView message=findViewById(R.id.b_message);
-        title.setText("you say:");
-        message.setText("bye bye!");
-        //定时器
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                stop();
-            }
-        }, 5000);    //延时5s执行
-    }
 
     //退出再次确认功能
     public void onBackPressed() {
