@@ -30,9 +30,6 @@ public class BodyActivity extends AppCompatActivity {
         //再次进入时使用
         getWindow().setReenterTransition(new Fade());
         setContentView(R.layout.activity_body);
-        if (getSupportActionBar() != null){
-            getSupportActionBar().hide();
-        }
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -40,13 +37,12 @@ public class BodyActivity extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         TextView account=findViewById(R.id.body_textView_account);
         account.setText(name);
-
     }
 
     public void  exit(View view){

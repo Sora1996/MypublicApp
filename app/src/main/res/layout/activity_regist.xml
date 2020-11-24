@@ -29,11 +29,13 @@
             <EditText
                 android:id="@+id/regist_editText_password"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="160dp"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:background="@color/colorGrey"
+                android:paddingLeft="10dp"
                 android:hint="请输入注册密码"
                 app:layout_constraintStart_toEndOf="@+id/regist_textView_password"
                 app:layout_constraintTop_toBottomOf="@+id/regist_editText_account" />
@@ -42,20 +44,23 @@
                 android:id="@+id/regist_textView_password2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="240dp"
-                android:text="确认密码"
-                android:textSize="20dp"
-                 />
+                android:text="密码"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="20dp" />
+
             <EditText
                 android:id="@+id/regist_editText_password2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="230dp"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:inputType="textPassword"
                 android:hint="请再次输入注册密码"
+                android:background="@color/colorGrey"
+                android:paddingLeft="10dp"
                 app:layout_constraintStart_toEndOf="@+id/regist_textView_password2"
                 app:layout_constraintTop_toBottomOf="@+id/regist_editText_password" />
 
@@ -63,8 +68,8 @@
                 android:id="@+id/regist_textView_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="170dp"
                 android:layout_marginLeft="50dp"
+                android:layout_marginTop="170dp"
                 android:text="密码"
                 android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,10 +78,12 @@
             <EditText
                 android:id="@+id/regist_editText_account"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="80dp"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
+                android:background="@color/colorGrey"
+                android:paddingLeft="10dp"
                 android:inputType="textPersonName"
                 android:hint="请输入注册账户"
                 app:layout_constraintStart_toEndOf="@+id/regist_textView_account"
