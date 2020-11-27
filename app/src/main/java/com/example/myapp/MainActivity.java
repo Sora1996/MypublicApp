@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {//首页
             @Override
             public void run() {
                 Intent intent = new Intent(MainActivity.this,
-                        LoginActivity.class); // 从启动动画ui跳转到主ui
+                        BodyActivity.class); // 从启动动画ui跳转到主ui
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in,
                         R.anim.fade_out);
